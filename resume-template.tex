@@ -1,0 +1,464 @@
+%!TeX program = pdflatex
+% Geoff Boeing's Curriculum Vitae - LaTex resume template
+% Email: boeing@usc.edu
+% Web: https://geoffboeing.com/
+% Original Repo: https://github.com/gboeing/cv
+% Repo: https://github.com/volkan-labs/latex-cv
+
+\documentclass[12pt,letterpaper]{report}
+
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+
+% what is your name?
+\newcommand{\myname}{Firstname Lastname}
+
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{helvet}     % document's sans serif typeface
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {key, words, with, comma, separated},
+    pdftitle    = {\myname: your name - resume},
+    pdfsubject  = {your name - resume},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Current position \\
+        Current organisation
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \flushright{}
+        \href{mailto:<mail>}{<mail>} \\
+        phone number \\
+        \href{https://website}{website}
+    \end{minipage}
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[Ph.D.] \tab{}Phd information
+        \item[M.S.]  \tab{}MSc information
+        \item[B.S.]  \tab{}Bs information
+
+    \end{tablist}
+
+
+
+    \section*{Experience}
+
+    \begin{tablist}
+
+        \item[Start date--End date]   \tab{}Organisation name \\
+                              Position \\
+                              Detail
+
+    \end{tablist}
+
+
+
+    \section*{Research Areas}
+
+    \begin{itemize}
+
+        \item Research area 1
+        \item Research area 1
+        \item Research area 1
+
+    \end{itemize}
+
+
+
+    \section*{Publications}
+
+    \subsection*{Journal Articles}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \subsection*{Book Chapters}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \subsection*{Conference Proceedings}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \subsection*{Edited Articles and Reviews}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \subsection*{Reports and Other Publications}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \subsection*{Patents}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \subsection*{Manuscripts under Review}
+
+    \begin{tablist}
+
+        \item[\the\year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+    
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \section*{Invited Talks}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+        
+    \end{tablist}
+
+    \subsection*{Campus Talks}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \section*{Conference Activity}
+
+    \subsection*{Keynote and Plenary Addresses}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+    \subsection*{Sessions Organized}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+    \subsection*{Sessions Chaired}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+    \subsection*{Invited Panelist}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+    \subsection*{Symposia}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+    \subsection*{Conference Papers Presented\footnote{Presenting author \textit{italicized} if other than first author. * indicates supervised student coauthor.}}
+
+    \begin{tablist}
+
+        \item[2022] \tab{}Boeing, G., \textit{Y. Lu},* C. Pilgram,* and P. Mannino.* \enquote{Race, Class, and the Production of and Exposure to Vehicular Pollution in Los Angeles.} Association for Public Policy Analysis \& Management Fall Conference. Austin, Texas. Mar 27--29.
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \section*{Grants and Awards}
+
+    \subsection*{Awards and Honors}
+
+    \begin{tablist}
+
+        \item[\the\year] \tab{}award
+        \item[year] \tab{}another award
+        
+
+    \end{tablist}
+
+    \subsection*{Grants and Fellowships}
+
+    \begin{tablist}
+
+        \item[year] \tab{}Writer name. \textbf{another name in bold}. \enquote{text in quotes.} \textit{text in italic}. \href{https://this.is.a.link}{this is a link for reference}
+
+    \end{tablist}
+
+
+
+    \section*{Courses Taught}
+
+    \subsection*{University name}
+
+    \begin{itemize}
+
+        \item course name 1
+        \item course name 2
+
+    \end{itemize}
+
+    \subsection*{Another university name}
+
+    \begin{itemize}
+
+        \item course name 1
+        \item course name 2
+
+    \end{itemize}
+    
+    \section*{Service}
+
+    \subsection*{Academic Journal Editorial Boards}
+
+    \begin{itemize}
+
+        \item \textit{Title}, year--
+        \item \textit{Title}, year--
+
+    \end{itemize}
+
+    \subsection*{Academic Journal Peer Review}
+
+    \begin{itemize}
+
+        \item \textit{title}
+        \item \textit{title}
+
+    \end{itemize}
+
+    \subsection*{Academic Press Peer Review}
+
+    \begin{itemize}
+
+        \item press name 1
+        \item press name 2
+
+    \end{itemize}
+
+    \subsection*{Funding Agency Peer Review}
+
+    \begin{itemize}
+
+        \item review 1
+        \item review 2
+
+    \end{itemize}
+
+    \subsection*{Service to Field}
+
+    \begin{itemize}
+
+        \item something happened here, 2019--\the\year
+        \item something happened here, start year--end year
+
+    \end{itemize}
+
+    \subsection*{Service to Department}
+
+    \begin{itemize}
+
+        \item something happened here, start year--end year
+        \item something happened here, start year--end year
+
+    \end{itemize}
+
+    \subsection*{Doctoral Committees}
+
+    \begin{itemize}
+
+        \item something happened here, start year--end year
+        \item something happened here, start year--end year
+
+    \end{itemize}
+
+    \subsection*{Studio Review Jury}
+
+    \begin{itemize}
+
+        \item something happened here, start year--end year
+
+    \end{itemize}
+
+
+
+    \section*{Memberships}
+
+    \begin{itemize}
+
+        \item membership 1
+        \item membership 2
+
+    \end{itemize}
+
+
+
+    \section*{Credentials}
+
+    \begin{itemize}
+
+        \item credentials 1
+        \item credentials 2
+
+    \end{itemize}
+
+
+    \section*{Consulting}
+
+    \begin{tablist}
+
+        \item[2017--19] \tab{}consultation 1
+        \item[2017--19] \tab{}consultation 2
+        \item[2013]     \tab{}consultation 3
+
+    \end{tablist}
+
+
+
+    \section*{Professional Employment}
+
+    \begin{tablist}
+
+        \item[2009--13] \tab{}work 1
+        \item[2009--13] \tab{}work 2
+
+    \end{tablist}
+
+
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}
