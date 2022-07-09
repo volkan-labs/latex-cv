@@ -15,4 +15,4 @@ jobs:
       - name: Compile PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: cv-gboeing.tex
+          root_file: cv-test.tex
