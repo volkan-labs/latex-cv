@@ -19,7 +19,7 @@ jobs:
 
       - name: Rename file
         run: |
-          cv-gboeing.tex ${{ github.repository_owner }}.pdf
+          cv-gboeing.pdf ${{ github.repository_owner }}.pdf
 
       - name: Commit file to master
         uses: EndBug/add-and-commit@v9
