@@ -20,5 +20,5 @@ jobs:
       - name: Commit file to master
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'cv-gboeing.pdf'
+          add: '${github.repository_owner}.pdf'
           message: 'Generated CV'
