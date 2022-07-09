@@ -16,6 +16,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv-gboeing.tex
+
+      - name: Rename file
         run: |
           cv-gboeing.tex ${{ github.repository_owner }}.pdf
 
