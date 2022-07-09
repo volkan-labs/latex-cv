@@ -16,3 +16,9 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv-gboeing.tex
+
+      - name: Commit file to master
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'cv-gboeing.pdf'
+          message: 'Generated CV'
